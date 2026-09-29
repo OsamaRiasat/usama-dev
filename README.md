@@ -47,7 +47,7 @@ $ open ./portfolio
     <td width="50%" valign="top">
       <img src=".github/assets/projects.jpg" alt="Project showcase with browser-framed product visuals" />
       <h3>Project showcase</h3>
-      Large alternating case-study cards with 3D-tilt browser frames, pointer glare, key metrics, stack chips and category filters with shared-layout animation.
+      Large alternating case-study cards with browser-framed product visuals, key metrics, stack chips and category filters with shared-layout animation.
     </td>
     <td width="50%" valign="top">
       <img src=".github/assets/case-study.jpg" alt="Project case-study page" />

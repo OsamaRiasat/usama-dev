@@ -7,7 +7,6 @@ import { AnimatePresence, motion } from "motion/react";
 import { Command, Menu, X } from "lucide-react";
 import clsx from "clsx";
 import ThemeToggle from "./ui/ThemeToggle";
-import { profile } from "@/content/profile";
 
 export const navItems = [
   { id: "work", label: "Work" },
@@ -54,17 +53,10 @@ export default function Nav() {
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
       <nav
         className={clsx(
-          "mx-auto flex max-w-6xl items-center justify-between rounded-full border px-3 py-2 pl-5 transition-all duration-500",
+          "mx-auto flex max-w-6xl items-center justify-between rounded-full border px-3 py-2 transition-all duration-500",
           scrolled || open ? "border-line bg-bg/70 backdrop-blur-xl" : "border-transparent",
         )}
       >
-        <Link href="/" className="group flex items-center gap-2 font-mono text-sm font-medium">
-          <span className="grid h-7 w-7 place-items-center rounded-md bg-accent text-xs font-bold text-accent-ink transition group-hover:rotate-6">
-            UR
-          </span>
-          <span className="hidden sm:inline">{profile.name.toLowerCase().replace(" ", ".")}</span>
-        </Link>
-
         <ul className="hidden items-center gap-1 md:flex">
           {navItems.map((item) => (
             <li key={item.id}>
@@ -84,7 +76,7 @@ export default function Nav() {
           ))}
         </ul>
 
-        <div className="flex items-center gap-2">
+        <div className="ml-auto flex items-center gap-2">
           <button
             type="button"
             onClick={openPalette}
