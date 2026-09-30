@@ -32,7 +32,7 @@ export default function Experience() {
 
   return (
     <section id="experience" className="mx-auto max-w-6xl scroll-mt-24 px-4 py-24 md:px-6 md:py-32">
-      <SectionHeading index="03" eyebrow="Experience" title="Six years," accent="four teams.">
+      <SectionHeading index="04" eyebrow="Experience" title="Six years," accent="four teams.">
         From full-stack product work to leading AI architecture in regulated healthcare.
       </SectionHeading>
 

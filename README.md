@@ -4,7 +4,7 @@
 
 # Usama Riasat — Portfolio
 
-**Senior Software Engineer · Agentic AI · HIPAA-grade platforms**
+**Senior Software Engineer · AI Agents & Chatbots · LLM Fine-tuning · n8n / Make.com / GoHighLevel Automation**
 
 An interactive, dark-first portfolio built to put the work front and center.
 
@@ -30,7 +30,8 @@ $ whoami
 usama.riasat — senior software engineer, 6+ yrs
 
 $ cat focus.txt
-→ multi-agent LangGraph workflows & HIPAA-compliant RAG
+→ multi-agent LangGraph workflows, chatbots & HIPAA-compliant RAG
+→ fine-tuned LLMs and n8n / Make.com / GoHighLevel automations
 → FastAPI / Django microservices at 10K+ concurrent users
 → React front-ends that feel fast
 
@@ -41,6 +42,10 @@ $ open ./portfolio
 ---
 
 ## ✦ What's inside
+
+<img src=".github/assets/capabilities.jpg" alt="Capabilities — AI agents & chatbots, LLM fine-tuning, workflow automation, CRM automation" width="100%" />
+
+<p align="center"><sub><b>What I do</b> — AI agents &amp; chatbots · LLM fine-tuning · n8n / Make.com workflows · GoHighLevel &amp; HubSpot automation</sub></p>
 
 <table>
   <tr>
@@ -90,6 +95,7 @@ $ open ./portfolio
 
 ### Small things that add up
 
+- **Capabilities bento** — AI agents & chatbots, LLM fine-tuning, workflow automation and CRM automation, each with its own live micro-visual
 - **Living hero** — a canvas node network where "packets" travel between agents and nodes lean toward your cursor
 - **Illustrated product mocks** — until real screenshots land, each project renders its own tinted UI mock (the GoPainting one is actually interactive — hover the swatches)
 - **Count-up impact stats**, typewriter intro, marquee stack strip, cursor spotlight, grain texture

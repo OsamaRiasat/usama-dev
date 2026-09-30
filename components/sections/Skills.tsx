@@ -39,7 +39,7 @@ export default function Skills() {
 
   return (
     <section id="skills" className="mx-auto max-w-6xl scroll-mt-24 px-4 py-24 md:px-6 md:py-32">
-      <SectionHeading index="04" eyebrow="Toolkit" title="The stack behind" accent="the work.">
+      <SectionHeading index="05" eyebrow="Toolkit" title="The stack behind" accent="the work.">
         Hover a skill to see where I&apos;ve used it.
       </SectionHeading>
 

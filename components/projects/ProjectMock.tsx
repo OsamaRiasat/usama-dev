@@ -2,15 +2,15 @@
 
 import { useState } from "react";
 import {
-  AudioLines, Bell, Bot, Camera, Check, FileText, Image as ImageIcon, Lock, Mic, Paperclip, Search, Send,
-  ShieldCheck, ShoppingBag, Sparkles, Star, Stethoscope, Ticket, User, Video,
+  AudioLines, Bell, Bot, Brain, Calendar, Camera, Check, FileText, Globe, Image as ImageIcon, Lock, MessageSquare,
+  Mic, Paperclip, Phone, Search, Send, ShieldCheck, ShoppingBag, Sparkles, Star, Stethoscope, Ticket, User, Video, Webhook, Zap,
 } from "lucide-react";
 import type { MockKind } from "@/content/projects";
 
 /** Illustrated product UI used as a stand-in until a real screenshot is provided. Always dark, like a screenshot. */
 export default function ProjectMock({ kind, hue }: { kind: MockKind; hue: number }) {
   const c = (l: number, a = 1, s = 80) => `hsl(${hue} ${s}% ${l}% / ${a})`;
-  const Body = { chat: Chat, clinical: Clinical, vision: Vision, funding: Funding, shop: Shop, paint: Paint }[kind];
+  const Body = { chat: Chat, clinical: Clinical, vision: Vision, funding: Funding, shop: Shop, paint: Paint, flow: Flow, crm: Crm, finetune: FineTune }[kind];
   return (
     <div
       className="relative h-full w-full overflow-hidden text-[10px] text-white/80 sm:text-[11px]"
@@ -299,6 +299,163 @@ function Paint({ c }: C) {
             <button key={p} type="button" aria-label={`Paint side wall ${p}`} onMouseEnter={() => setAccent(p)} onClick={() => setAccent(p)} className="aspect-square rounded-md border-2 transition hover:scale-110" style={{ background: p, borderColor: accent === p ? c(65) : "transparent" }} />
           ))}
         </div>
+      </aside>
+    </div>
+  );
+}
+
+/** n8n-style workflow canvas with packets travelling along the connections. */
+function Flow({ c }: C) {
+  const nodes = [
+    { l: "Webhook", sub: "ads · forms", I: Webhook, x: 10, y: 50 },
+    { l: "Enrich", sub: "company data", I: Globe, x: 32, y: 50 },
+    { l: "AI score", sub: "gpt · json", I: Brain, x: 54, y: 50, ai: true },
+    { l: "CRM", sub: "GoHighLevel", I: User, x: 78, y: 26 },
+    { l: "Slack", sub: "#hot-leads", I: MessageSquare, x: 78, y: 74 },
+  ];
+  const edges: [number, number][] = [[0, 1], [1, 2], [2, 3], [2, 4]];
+  return (
+    <div
+      className="relative h-full"
+      style={{ backgroundImage: "radial-gradient(rgb(255 255 255 / .09) 1px, transparent 1px)", backgroundSize: "14px 14px" }}
+    >
+      <div className="absolute left-3 top-3 flex items-center gap-1.5 font-semibold text-white">
+        <Zap className="h-3.5 w-3.5" style={{ color: c(60) }} /> Lead → Meeting
+        <span className="ml-1 rounded px-1.5 py-0.5 text-[9px] font-medium" style={{ background: c(50, 0.2), color: c(75) }}>
+          ● Active
+        </span>
+      </div>
+      <svg className="absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+        {edges.map(([a, b], i) => {
+          const d = `M ${nodes[a].x} ${nodes[a].y} C ${(nodes[a].x + nodes[b].x) / 2} ${nodes[a].y}, ${(nodes[a].x + nodes[b].x) / 2} ${nodes[b].y}, ${nodes[b].x} ${nodes[b].y}`;
+          return (
+            <g key={i}>
+              <path d={d} fill="none" stroke="rgb(255 255 255 / .22)" strokeWidth="1" vectorEffect="non-scaling-stroke" />
+              <path d={d} fill="none" stroke={c(60)} strokeWidth="2" strokeDasharray="4 96" pathLength={100} vectorEffect="non-scaling-stroke">
+                <animate attributeName="stroke-dashoffset" from="100" to="0" dur="2.4s" begin={`${i * 0.5}s`} repeatCount="indefinite" />
+              </path>
+            </g>
+          );
+        })}
+      </svg>
+      {nodes.map(({ l, sub, I, x, y, ai }) => (
+        <div
+          key={l}
+          className="absolute flex -translate-x-1/2 -translate-y-1/2 items-center gap-1.5 rounded-lg border bg-[#16181d] p-1.5 pr-2.5 shadow-lg"
+          style={{ left: `${x}%`, top: `${y}%`, borderColor: ai ? c(55) : "rgb(255 255 255 / .14)" }}
+        >
+          <span className="grid h-6 w-6 place-items-center rounded-md" style={{ background: ai ? c(50) : c(40, 0.25) }}>
+            <I className="h-3.5 w-3.5" style={{ color: ai ? "#000" : c(70) }} />
+          </span>
+          <span className="leading-tight">
+            <span className="block font-medium text-white">{l}</span>
+            <span className="hidden text-[9px] text-white/45 sm:block">{sub}</span>
+          </span>
+        </div>
+      ))}
+      <div className="absolute bottom-3 left-3 right-3 flex justify-between text-white/40">
+        <span>Executions today · 1,284</span>
+        <span className="flex items-center gap-1">
+          <Check className="h-3 w-3" style={{ color: c(60) }} /> All succeeded
+        </span>
+      </div>
+    </div>
+  );
+}
+
+/** GoHighLevel-style pipeline board. */
+function Crm({ c }: C) {
+  const cols = [
+    { t: "New lead", n: 12, cards: ["Sarah K.", "Dental Pro", "M. Ortiz"] },
+    { t: "Contacted", n: 8, cards: ["Apex Roofing", "J. Chen"] },
+    { t: "Booked", n: 5, cards: ["Bloom Spa", "R. Patel"], hot: true },
+    { t: "Won", n: 3, cards: ["Nova Fitness"] },
+  ];
+  return (
+    <div className="flex h-full flex-col">
+      <header className="flex items-center gap-2 border-b border-white/10 px-3 py-2">
+        <span className="font-semibold text-white">Pipeline · Agency clients</span>
+        <span className="ml-auto flex items-center gap-1 rounded px-1.5 py-0.5" style={{ background: c(45, 0.2), color: c(75) }}>
+          <Bot className="h-3 w-3" /> AI setter on
+        </span>
+      </header>
+      <div className="grid flex-1 grid-cols-4 gap-1.5 p-2">
+        {cols.map((col) => (
+          <div key={col.t} className="flex flex-col gap-1.5 rounded-md bg-white/[0.03] p-1.5">
+            <div className="flex items-center justify-between px-0.5 text-white/60">
+              <span className="truncate">{col.t}</span>
+              <span className="font-mono">{col.n}</span>
+            </div>
+            {col.cards.map((name, i) => (
+              <Panel key={name} className="space-y-1 p-1.5" style={col.hot && i === 0 ? { borderColor: c(55, 0.7), background: c(40, 0.2) } : undefined}>
+                <div className="truncate text-white">{name}</div>
+                <div className="flex gap-1 text-white/40">
+                  {i % 2 === 0 ? <Phone className="h-2.5 w-2.5" /> : <MessageSquare className="h-2.5 w-2.5" />}
+                  {col.hot && <Calendar className="h-2.5 w-2.5" style={{ color: c(65) }} />}
+                </div>
+              </Panel>
+            ))}
+          </div>
+        ))}
+      </div>
+      <div className="mx-2 mb-2 flex items-center gap-2 rounded-md border border-white/10 bg-white/[0.04] px-2 py-1.5">
+        <MessageSquare className="h-3 w-3 shrink-0" style={{ color: c(65) }} />
+        <span className="truncate text-white/70">AI: &ldquo;Hi Sarah! Sorry we missed your call — want to grab a slot tomorrow at 10?&rdquo;</span>
+      </div>
+    </div>
+  );
+}
+
+/** Fine-tuning run: loss curves + eval scores beside the resulting chatbot. */
+function FineTune({ c }: C) {
+  const train = "M0,8 C10,40 20,58 35,66 S60,76 100,80";
+  const val = "M0,14 C12,42 24,58 38,64 S62,70 100,72";
+  return (
+    <div className="flex h-full">
+      <div className="flex flex-1 flex-col gap-2 p-3">
+        <div className="flex items-center justify-between">
+          <span className="flex items-center gap-1.5 font-semibold text-white">
+            <Sparkles className="h-3.5 w-3.5" style={{ color: c(65) }} /> ft-run · support-v3
+          </span>
+          <span className="rounded px-1.5 py-0.5" style={{ background: c(45, 0.2), color: c(78) }}>
+            ✓ succeeded
+          </span>
+        </div>
+        <Panel className="relative min-h-0 flex-1">
+          <span className="absolute left-2 top-1.5 text-white/40">loss</span>
+          <svg viewBox="0 0 100 90" preserveAspectRatio="none" className="absolute inset-x-2 bottom-5 top-6 h-[calc(100%-2.75rem)] w-[calc(100%-1rem)]">
+            {[20, 40, 60, 80].map((y) => (
+              <line key={y} x1="0" x2="100" y1={y} y2={y} stroke="rgb(255 255 255 / .06)" vectorEffect="non-scaling-stroke" />
+            ))}
+            <path d={val} fill="none" stroke="rgb(255 255 255 / .35)" strokeWidth="1.5" strokeDasharray="3 2" vectorEffect="non-scaling-stroke" />
+            <path d={train} fill="none" stroke={c(65)} strokeWidth="2" vectorEffect="non-scaling-stroke" />
+          </svg>
+          <span className="absolute bottom-1.5 right-2 flex gap-2 text-white/50">
+            <span style={{ color: c(70) }}>— train</span>
+            <span>-- val</span>
+          </span>
+        </Panel>
+        <div className="grid grid-cols-3 gap-1.5">
+          {[["Tone match", "A+"], ["Accuracy", "↑"], ["Hallucination", "↓"]].map(([k, v]) => (
+            <Panel key={k} className="p-1.5">
+              <div className="truncate text-white/50">{k}</div>
+              <div className="font-semibold" style={{ color: c(72) }}>
+                {v}
+              </div>
+            </Panel>
+          ))}
+        </div>
+      </div>
+      <aside className="hidden w-[38%] flex-col gap-2 border-l border-white/10 p-3 sm:flex">
+        <span className="font-semibold text-white">Support chat</span>
+        <Panel className="p-2">Can I change my plan mid-cycle?</Panel>
+        <Panel className="ml-3 p-2" style={{ background: c(40, 0.25) }}>
+          Yes — upgrades apply instantly and we prorate the difference.
+          <span className="mt-1 block text-white/40">Source: billing-faq.md</span>
+        </Panel>
+        <Panel className="mt-auto flex items-center gap-1.5 p-2 text-white/40">
+          <User className="h-3 w-3" /> Handoff to human ready
+        </Panel>
       </aside>
     </div>
   );

@@ -13,8 +13,8 @@ export default function Projects() {
 
   return (
     <section id="work" className="relative mx-auto max-w-6xl scroll-mt-24 px-4 py-24 md:px-6 md:py-32">
-      <SectionHeading index="01" eyebrow="Selected work" title="Things I've" accent="shipped.">
-        From multi-model AI platforms to HIPAA-grade clinical agents — production systems used by real people.
+      <SectionHeading index="02" eyebrow="Selected work" title="Things I've" accent="shipped.">
+        From multi-model AI platforms and HIPAA-grade clinical agents to automations that run whole sales pipelines.
       </SectionHeading>
 
       <div role="group" aria-label="Filter projects" className="mb-16 flex flex-wrap gap-2">

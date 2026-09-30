@@ -2,9 +2,9 @@ export const profile = {
   name: "Usama Riasat",
   firstName: "Usama",
   role: "Senior Software Engineer",
-  tagline: "I build production AI systems — agents, RAG pipelines and the scalable backends behind them.",
+  tagline: "I build production AI systems — agents, chatbots, fine-tuned models and automations, plus the scalable backends behind them.",
   intro:
-    "Senior Software Engineer with 6+ years shipping web platforms and AI-native systems in Python and React. Today I design HIPAA-compliant RAG pipelines and multi-agent LLM workflows for healthcare.",
+    "Senior Software Engineer with 6+ years shipping web platforms and AI-native systems in Python and React. I design multi-agent LangGraph workflows, chatbots, fine-tuned LLMs and n8n / Make.com / GoHighLevel automations — including HIPAA-compliant RAG for healthcare.",
   location: "Lahore, Pakistan · Remote",
   available: true,
   email: "osamariasat@gmail.com",
@@ -13,7 +13,7 @@ export const profile = {
     linkedin: "https://www.linkedin.com/in/osamariasat/",
     resume: "/Usama-Riasat-Resume.pdf",
   },
-  typed: ["agentic AI systems", "HIPAA-compliant RAG", "FastAPI microservices", "multi-model LLM apps", "React front-ends"],
+  typed: ["AI agents with LangGraph", "chatbots that book meetings", "fine-tuned LLMs", "n8n & Make.com automations", "GoHighLevel workflows", "HIPAA-compliant RAG"],
   stats: [
     { value: 6, suffix: "+", label: "Years shipping production software" },
     { value: 35, suffix: "%", label: "Better LLM accuracy via RAG" },

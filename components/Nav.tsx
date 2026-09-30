@@ -9,6 +9,7 @@ import clsx from "clsx";
 import ThemeToggle from "./ui/ThemeToggle";
 
 export const navItems = [
+  { id: "services", label: "Services" },
   { id: "work", label: "Work" },
   { id: "approach", label: "Approach" },
   { id: "experience", label: "Experience" },

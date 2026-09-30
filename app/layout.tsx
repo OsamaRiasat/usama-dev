@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   description: profile.intro,
   authors: [{ name: profile.name, url: profile.links.linkedin }],
-  keywords: ["Usama Riasat", "Senior Software Engineer", "AI Engineer", "LangGraph", "RAG", "FastAPI", "Django", "React", "HIPAA"],
+  keywords: ["Usama Riasat", "Senior Software Engineer", "AI Engineer", "AI automation", "n8n", "Make.com", "GoHighLevel", "LLM fine-tuning", "chatbot", "LangGraph", "LangChain", "RAG", "FastAPI", "React"],
   openGraph: {
     type: "website",
     title: `${profile.name} — ${profile.role}`,

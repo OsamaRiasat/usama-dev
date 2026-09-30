@@ -14,7 +14,7 @@ const rise = (delay: number) => ({
   transition: { duration: 0.9, delay, ease },
 });
 
-const marquee = ["LangGraph", "FastAPI", "RAG", "Django", "React", "Next.js", "MilvusDB", "PostgreSQL", "Kubernetes", "AWS", "Terraform", "Redis", "Celery", "Claude Code", "MCP"];
+const marquee = ["LangGraph", "LangChain", "Fine-tuning", "n8n", "Make.com", "GoHighLevel", "RAG", "Chatbots", "FastAPI", "Django", "React", "Next.js", "OpenAI", "Kubernetes", "AWS", "MCP"];
 
 export default function Hero() {
   return (
@@ -46,7 +46,7 @@ export default function Hero() {
         </h1>
 
         <motion.p {...rise(0.45)} className="mt-8 max-w-2xl text-lg text-muted md:text-xl">
-          {profile.role} with 6+ years in Python &amp; React. Right now: <Typewriter words={profile.typed} />
+          {profile.role} · 6+ years in Python &amp; React, now building AI and automation. Right now: <Typewriter words={profile.typed} />
         </motion.p>
 
         <motion.div {...rise(0.58)} className="mt-10 flex flex-wrap items-center gap-3">

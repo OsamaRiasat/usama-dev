@@ -1,5 +1,6 @@
 import Hero from "@/components/sections/Hero";
 import Stats from "@/components/sections/Stats";
+import Capabilities from "@/components/sections/Capabilities";
 import Projects from "@/components/projects/Projects";
 import Approach from "@/components/sections/Approach";
 import Experience from "@/components/sections/Experience";
@@ -15,7 +16,7 @@ const personJsonLd = {
   jobTitle: profile.role,
   email: `mailto:${profile.email}`,
   sameAs: [profile.links.linkedin, profile.links.github],
-  knowsAbout: ["LangGraph", "RAG", "FastAPI", "Django", "React", "AWS"],
+  knowsAbout: ["AI agents", "Chatbots", "LLM fine-tuning", "LangGraph", "LangChain", "RAG", "n8n", "Make.com", "GoHighLevel", "FastAPI", "Django", "React", "AWS"],
 };
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
       <main className="relative z-10">
         <Hero />
         <Stats />
+        <Capabilities />
         <Projects />
         <Approach />
         <Experience />

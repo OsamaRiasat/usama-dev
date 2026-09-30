@@ -1,7 +1,7 @@
-export type Category = "AI / LLM" | "Full-Stack" | "E-commerce" | "FinTech" | "Healthcare";
+export type Category = "AI / LLM" | "Automation" | "Full-Stack" | "E-commerce" | "FinTech" | "Healthcare";
 
 /** Which illustrated UI mock to render while a real screenshot is missing. */
-export type MockKind = "chat" | "vision" | "funding" | "shop" | "paint" | "clinical";
+export type MockKind = "chat" | "vision" | "funding" | "shop" | "paint" | "clinical" | "flow" | "crm" | "finetune";
 
 export type Project = {
   slug: string;
@@ -60,6 +60,35 @@ export const projects: Project[] = [
     mock: "chat",
     hue: 262,
   },
+  // DRAFT — automation case study written as a realistic example. Replace names, details and results with your real project before publishing.
+  {
+    slug: "leadflow-ai",
+    title: "LeadFlow AI",
+    tagline: "Every lead answered, qualified and booked — automatically.",
+    summary:
+      "An n8n automation that captures leads from ads, forms and chat, enriches and scores them with an LLM, pushes them into the CRM and books qualified prospects straight onto the calendar — with the sales team pinged in Slack.",
+    categories: ["Automation", "AI / LLM"],
+    role: "Automation & AI engineer",
+    stack: ["n8n", "OpenAI", "LangChain", "GoHighLevel", "HubSpot", "Webhooks", "PostgreSQL", "Slack API"],
+    metrics: [
+      { value: "24/7", label: "Instant lead response" },
+      { value: "AI", label: "Lead scoring & routing" },
+      { value: "0", label: "Manual data entry" },
+    ],
+    problem:
+      "Leads arrived from five different sources and sat for hours before anyone replied. Sales reps copied data between tools by hand and hot prospects went cold.",
+    solution:
+      "A self-hosted n8n workflow ingests every lead via webhooks, enriches it, asks an LLM to score intent and fit, then routes it: hot leads get an instant personalised reply and a booking link, the rest enter a nurture sequence.",
+    architecture: ["Ads · forms · chat", "n8n webhooks", "Enrichment", "LLM scoring", "CRM (GHL / HubSpot)", "Slack + calendar"],
+    features: [
+      { title: "Omnichannel capture", body: "One webhook layer for Meta/Google ads, website forms and chat widgets." },
+      { title: "LLM qualification", body: "Structured-output prompts score intent, budget and fit, and draft a personalised first reply." },
+      { title: "Hands-off booking", body: "Qualified leads get a calendar link; bookings sync back to the CRM and notify the rep in Slack." },
+    ],
+    images: {},
+    mock: "flow",
+    hue: 16,
+  },
   {
     slug: "clinical-ai",
     title: "Clinical AI Platform",
@@ -90,6 +119,64 @@ export const projects: Project[] = [
     images: {},
     mock: "clinical",
     hue: 168,
+  },
+  // DRAFT — fine-tuning case study written as a realistic example. Replace with your real project before publishing.
+  {
+    slug: "support-copilot",
+    title: "Support Copilot",
+    tagline: "A fine-tuned model that sounds like your best agent.",
+    summary:
+      "A customer-support chatbot built on an LLM fine-tuned on historical support conversations, grounded with RAG over the help centre and wired into the helpdesk so it can resolve, tag and hand off tickets.",
+    categories: ["AI / LLM", "Automation"],
+    role: "AI engineer",
+    stack: ["Fine-tuning", "OpenAI", "Hugging Face", "LoRA", "LangGraph", "LangChain", "RAG", "FastAPI", "n8n"],
+    metrics: [
+      { value: "Fine-tuned", label: "On real support threads" },
+      { value: "RAG", label: "Grounded answers" },
+      { value: "Human", label: "Handoff built in" },
+    ],
+    problem:
+      "Generic chatbots answered in the wrong tone, invented policy details and frustrated customers — so the team kept answering the same questions by hand.",
+    solution:
+      "Cleaned and anonymised past conversations into a training set, fine-tuned a model for tone and task format, and paired it with LangGraph routing and RAG for facts. n8n syncs every conversation to the helpdesk.",
+    architecture: ["Chat widget", "FastAPI", "LangGraph router", "Fine-tuned LLM", "RAG over help centre", "Helpdesk via n8n"],
+    features: [
+      { title: "Fine-tuning pipeline", body: "Data cleaning, PII scrubbing, train/eval splits and LoRA or hosted fine-tuning with a repeatable eval harness." },
+      { title: "Grounded, on-brand answers", body: "The fine-tune owns tone and format; retrieval supplies the facts, with sources." },
+      { title: "Smart handoff", body: "Low-confidence or sensitive conversations route to a human with a summary already written." },
+    ],
+    images: {},
+    mock: "finetune",
+    hue: 280,
+  },
+  // DRAFT — CRM automation case study written as a realistic example. Replace with your real project before publishing.
+  {
+    slug: "ghl-growth-engine",
+    title: "GHL Growth Engine",
+    tagline: "A whole agency's follow-up, running on autopilot.",
+    summary:
+      "GoHighLevel and Make.com automations for a service agency: pipelines, SMS and email nurture, missed-call text-back, review requests and an AI appointment-setter that books calls around the clock.",
+    categories: ["Automation"],
+    role: "Automation engineer",
+    stack: ["GoHighLevel", "Make.com", "Zapier", "OpenAI", "Twilio", "Webhooks", "Google Sheets"],
+    metrics: [
+      { value: "24/7", label: "AI appointment setter" },
+      { value: "Multi", label: "Channel nurture (SMS · email)" },
+      { value: "Auto", label: "Reviews & reporting" },
+    ],
+    problem:
+      "The agency's leads, calls and follow-ups lived in spreadsheets and inboxes. Missed calls were lost, and nobody had time for consistent follow-up or review requests.",
+    solution:
+      "Rebuilt the funnel in GoHighLevel with clear pipeline stages, and used Make.com scenarios to connect forms, calendars, Twilio and reporting sheets. An OpenAI-powered conversation bot books appointments over SMS.",
+    architecture: ["Funnels & forms", "GoHighLevel CRM", "Make.com scenarios", "AI SMS assistant", "Calendar", "Reporting"],
+    features: [
+      { title: "Pipeline automation", body: "Leads move through stages automatically with tasks, tags and reminders for the team." },
+      { title: "Missed-call text-back", body: "Every missed call gets an instant SMS that the AI assistant can turn into a booking." },
+      { title: "Reviews & reporting", body: "Post-job review requests and a weekly performance sheet, fully automated." },
+    ],
+    images: {},
+    mock: "crm",
+    hue: 145,
   },
   {
     slug: "zangersecurity",
@@ -203,7 +290,7 @@ export const projects: Project[] = [
   },
 ];
 
-export const categories: ("All" | Category)[] = ["All", "AI / LLM", "Healthcare", "Full-Stack", "E-commerce", "FinTech"];
+export const categories: ("All" | Category)[] = ["All", "AI / LLM", "Automation", "Healthcare", "Full-Stack", "E-commerce", "FinTech"];
 
 export function getProject(slug: string) {
   return projects.find((p) => p.slug === slug);

@@ -29,7 +29,7 @@ export default function OpengraphImage() {
           <div style={{ fontSize: 108, fontWeight: 700, letterSpacing: -4, lineHeight: 1 }}>{profile.name}</div>
           <div style={{ fontSize: 40, color: "#8a9099", marginTop: 24, maxWidth: 950 }}>{profile.tagline}</div>
         </div>
-        <div style={{ display: "flex", gap: 16, fontSize: 24, color: "#c8f031" }}>LangGraph · RAG · FastAPI · Django · React · AWS</div>
+        <div style={{ display: "flex", gap: 16, fontSize: 24, color: "#c8f031" }}>AI Agents · Chatbots · Fine-tuning · n8n · Make.com · GHL</div>
       </div>
     ),
     size,

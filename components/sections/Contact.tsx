@@ -31,14 +31,14 @@ export default function Contact() {
       <div className="relative mx-auto max-w-6xl px-4 py-28 md:px-6 md:py-40">
         <Reveal>
           <p className="mb-6 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-muted">
-            <span className="text-accent">05</span>
+            <span className="text-accent">06</span>
             <span className="h-px w-8 bg-line-strong" /> Contact
           </p>
           <h2 className="max-w-4xl text-balance text-5xl font-semibold leading-[0.95] tracking-[-0.04em] md:text-8xl">
             Let&apos;s build something <span className="font-serif font-normal italic text-accent">remarkable.</span>
           </h2>
           <p className="mt-8 max-w-xl text-lg text-muted">
-            Whether it&apos;s an AI product, a platform that needs to scale, or a team that needs a senior engineer — I&apos;d love to hear about it.
+            Whether it&apos;s an AI agent, an automation that saves your team hours, a platform that needs to scale, or a team that needs a senior engineer — I&apos;d love to hear about it.
           </p>
         </Reveal>
 
