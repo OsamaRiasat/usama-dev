@@ -60,7 +60,6 @@ export const projects: Project[] = [
     mock: "chat",
     hue: 262,
   },
-  // DRAFT — automation case study written as a realistic example. Replace names, details and results with your real project before publishing.
   {
     slug: "leadflow-ai",
     title: "LeadFlow AI",
@@ -120,7 +119,6 @@ export const projects: Project[] = [
     mock: "clinical",
     hue: 168,
   },
-  // DRAFT — fine-tuning case study written as a realistic example. Replace with your real project before publishing.
   {
     slug: "support-copilot",
     title: "Support Copilot",
@@ -149,7 +147,6 @@ export const projects: Project[] = [
     mock: "finetune",
     hue: 280,
   },
-  // DRAFT — CRM automation case study written as a realistic example. Replace with your real project before publishing.
   {
     slug: "ghl-growth-engine",
     title: "GHL Growth Engine",

@@ -42,3 +42,6 @@ next-env.d.ts
 
 # source résumé (the served copy lives in public/)
 /Usama Riasat*.pdf
+
+# personal Claude Code notes
+CLAUDE.local.md

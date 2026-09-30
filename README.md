@@ -157,6 +157,7 @@ npm run dev          # → http://localhost:3000
 | `npm run build` | Production build — every page static  |
 | `npm run start` | Serve the production build            |
 | `npm run lint`  | ESLint                                |
+| `npm run shots` | Re-capture README screenshots (needs `next start -p 3124`) |
 
 ---
 
